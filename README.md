@@ -1,0 +1,1 @@
+# otus-auto-qa
