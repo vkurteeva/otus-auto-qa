@@ -1,42 +1,28 @@
 from typing import Union
-from utils import Figure, Poligone
-
-
-# class Triangle(Figure):
-#     def __init__(self, base: int, height: int, leg_a: int, leg_b: int):
-#         self.base = base
-#         self.height = height
-#         self.leg_a = leg_a
-#         self.leg_b = leg_b
-#
-#     @property
-#     def perimeter(self):
-#         return self.base + self.leg_b + self.leg_a
-#
-#     @property
-#     def area(self):
-#         return 0.5 * self.base * self.height
+from src.utils import Figure, Poligone
 
 
 class Triangle(Poligone, Figure):
     def __init__(
-        self, width, height, leg_a: Union[int, float], leg_b: Union[int, float]
+    self,
+    base: Union[int, float],
+    leg_a: Union[int, float, None] = None,
+    leg_b: Union[int, float, None] = None,
+    height: Union[int, float, None] = None
     ):
-
-        super().__init__(width, height, leg_a, leg_b)
+        if height is not None:
+            Poligone.__init__(self, base, height, leg_a, leg_b)
+        else:
+            Poligone.__init__(self, base, 1, leg_a, leg_b)
+        self.base = base
         self.leg_a = leg_a
         self.leg_b = leg_b
-        self.base = self.width
+        self.height = height
 
     @property
     def perimeter(self):
-        return self.base + self.leg_b + self.leg_a
+        return round((self.base + self.leg_b + self.leg_a), 2)
 
     @property
     def area(self):
-        return 0.5 * self.base * self.height
-
-
-t = Triangle(1, 5, 3, 3)
-print(t.perimeter)
-print(t.area)
+        return round((self.base * self.height * 0.5), 2)

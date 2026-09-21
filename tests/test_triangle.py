@@ -1,36 +1,39 @@
-from src.square import Square
+from src.triangle import Triangle
 import pytest
 
 
 @pytest.mark.regression
 @pytest.mark.parametrize(
-    ("width", "area"),
+    ("base", "height", "area"),
     [
-        pytest.param(3, 9, marks=pytest.mark.smoke, id="int"),
-        pytest.param(3.5, 12.25, id="float"),
+        pytest.param(3, 4, 6, marks=pytest.mark.smoke, id="int"),
+        pytest.param(2.5, 3.5, 4.38, id="float"),
     ],
 )
-def test_square_area(width, area):
-    figure = Square(width)
+def test_triangle_area(base, height, area):
+    figure = Triangle(base, height=height)
+    act_area = round(figure.area, 2)
 
-    assert figure.area == area, (
+    assert act_area == area, (
         f"Площадь равна {figure.area}, ожидаемый результат = {area}"
     )
 
 
 @pytest.mark.regression
+@pytest.mark.regression
 @pytest.mark.parametrize(
-    ("width", "perimeter"),
+    ("base", "leg_a", "leg_b", "perimeter"),
     [
-        pytest.param(3, 12, marks=pytest.mark.smoke, id="int"),
-        pytest.param(3.3, 13.2, id="float"),
+        pytest.param(3, 5, 6, 14, marks=pytest.mark.smoke, id="int"),
+        pytest.param(2.5, 4.5, 5.5, 12.5, id="float"),
     ],
 )
-def test_square_perimeter(width, perimeter):
-    figure = Square(width)
+def test_triangle_perimeter(base, leg_a, leg_b, perimeter ):
+    figure = Triangle(base, leg_a, leg_b)
+    act_perimeter = round(figure.perimeter, 2)
 
-    assert figure.perimeter == perimeter, (
-        f"Периметр равен {figure.perimeter}, ожидаемый результат {perimeter}"
+    assert act_perimeter == perimeter, (
+        f"Периметр равен {act_perimeter}, ожидаемый результат {perimeter}"
     )
 
 
