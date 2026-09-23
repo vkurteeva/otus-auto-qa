@@ -1,14 +1,14 @@
-from utils import Figure, Poligone
+from src.utils import Figure, Poligone
 
 
-class Square(Figure, Poligone):
+class Square(Poligone, Figure):
     def __init__(self, width):
-        super().__init__(width)
+        super().__init__(width, width)
 
     @property
     def perimeter(self):
-        return self.width * 4
+        return round((self.width * 4), 2)
 
     @property
     def area(self):
-        return self.width**2
+        return round((self.width**2), 2)
