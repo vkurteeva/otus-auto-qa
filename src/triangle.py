@@ -4,11 +4,11 @@ from src.utils import Figure, Poligone
 
 class Triangle(Poligone, Figure):
     def __init__(
-    self,
-    base: Union[int, float],
-    leg_a: Union[int, float, None] = None,
-    leg_b: Union[int, float, None] = None,
-    height: Union[int, float, None] = None
+        self,
+        base: Union[int, float],
+        leg_a: Union[int, float, None] = None,
+        leg_b: Union[int, float, None] = None,
+        height: Union[int, float, None] = None,
     ):
         if height is not None:
             Poligone.__init__(self, base, height, leg_a, leg_b)

@@ -28,13 +28,10 @@ def test_triangle_area(base, height, area):
         pytest.param(2.5, 4.5, 5.5, 12.5, id="float"),
     ],
 )
-def test_triangle_perimeter(base, leg_a, leg_b, perimeter ):
+def test_triangle_perimeter(base, leg_a, leg_b, perimeter):
     figure = Triangle(base, leg_a, leg_b)
     act_perimeter = round(figure.perimeter, 2)
 
     assert act_perimeter == perimeter, (
         f"Периметр равен {act_perimeter}, ожидаемый результат {perimeter}"
     )
-
-
-

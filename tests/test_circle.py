@@ -14,9 +14,7 @@ def test_circle_area(radius, area):
     figure = Circle(radius)
     act_area = round(figure.area, 2)
 
-    assert act_area == area, (
-        f"Площадь равна {act_area}, ожидаемый результат = {area}"
-    )
+    assert act_area == area, f"Площадь равна {act_area}, ожидаемый результат = {area}"
 
 
 @pytest.mark.regression
@@ -28,13 +26,10 @@ def test_circle_area(radius, area):
         pytest.param(2.5, 15.71, id="float"),
     ],
 )
-def test_circle_perimeter(radius, perimeter ):
+def test_circle_perimeter(radius, perimeter):
     figure = Circle(radius)
     act_perimeter = round(figure.perimeter, 2)
 
     assert act_perimeter == perimeter, (
         f"Периметр равен {act_perimeter}, ожидаемый результат {perimeter}"
     )
-
-
-

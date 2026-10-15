@@ -14,9 +14,7 @@ def test_rectangle_area(width, height, area):
     figure = Rectangle(width, height)
     act_area = round(figure.area, 2)
 
-    assert act_area == area, (
-        f"Площадь равна {act_area}, ожидаемый результат = {area}"
-    )
+    assert act_area == area, f"Площадь равна {act_area}, ожидаемый результат = {area}"
 
 
 @pytest.mark.regression
@@ -34,6 +32,3 @@ def test_rectangle_perimeter(width, height, perimeter):
     assert act_perimeter == perimeter, (
         f"Периметр равен {act_perimeter}, ожидаемый результат {perimeter}"
     )
-
-
-

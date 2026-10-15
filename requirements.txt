@@ -19,3 +19,6 @@ tomli==2.4.1
 tomlkit==0.15.1
 typing_extensions==4.16.0
 zipp==3.23.1
+requests
+
+pydantic
